@@ -23,7 +23,9 @@ set(MAIN_DIR src)
 set(MAIN_FILE main)
 
 set(CMAKE_FIND_LIBRARY_PREFIXES lib)
-set(BOOST_ROOT C:/local/boost_1_71_0)
+if(NOT BOOST_ROOT)
+	set(BOOST_ROOT "") # boost的根目錄
+endif()
 find_package(Boost COMPONENTS date_time context coroutine regex REQUIRED)
 if(Boost_FOUND)
 	cmake_print_variables(Boost_INCLUDE_DIRS)	
